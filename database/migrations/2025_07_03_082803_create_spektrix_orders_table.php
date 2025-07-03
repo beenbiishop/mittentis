@@ -12,6 +12,7 @@ return new class extends Migration {
     public function up(): void {
         Schema::create( 'spektrix_orders', function ( Blueprint $table ) {
             $table->id();
+            $table->foreignId( 'team_id' );
             $table->string( 'spektrix_id' )->unique();
             $table->dateTime( 'first_transaction' )->nullable();
             $table->dateTime( 'last_transaction' )->nullable();

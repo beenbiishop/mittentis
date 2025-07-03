@@ -12,6 +12,7 @@ return new class extends Migration {
     public function up(): void {
         Schema::create( 'spektrix_customers', function ( Blueprint $table ) {
             $table->id();
+            $table->foreignId( 'team_id' );
             $table->string( 'spektrix_id' )->unique();
             $table->string( 'first_name' );
             $table->string( 'last_name' );

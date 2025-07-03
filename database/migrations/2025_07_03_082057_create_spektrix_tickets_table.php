@@ -12,6 +12,7 @@ return new class extends Migration {
     public function up(): void {
         Schema::create( 'spektrix_tickets', function ( Blueprint $table ) {
             $table->id();
+            $table->foreignId( 'team_id' );
             $table->string( 'spektrix_id' )->unique();
             $table->string( 'barcode' );
             $table->float( 'discount' );
