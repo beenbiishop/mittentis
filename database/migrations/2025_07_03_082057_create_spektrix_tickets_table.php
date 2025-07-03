@@ -12,10 +12,10 @@ return new class extends Migration {
     public function up(): void {
         Schema::create( 'spektrix_tickets', function ( Blueprint $table ) {
             $table->id();
-            $table->foreignId( 'team_id' );
-            $table->string( 'spektrix_id' )->unique();
-            $table->string( 'barcode' );
-            $table->float( 'discount' );
+            $table->foreignId( 'team_id' )->constrained()->cascadeOnDelete();
+            $table->unsignedBigInteger( 'spektrix_id' )->unique();
+            $table->string( 'barcode' )->nullable();
+            $table->float( 'discount' )->default( 0 );
             $table->float( 'price' );
             $table->float( 'total' );
             $table->foreignId( 'plan_id' )->constrained( 'spektrix_plans' )->restrictOnDelete();

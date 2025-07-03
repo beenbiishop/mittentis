@@ -12,12 +12,12 @@ return new class extends Migration {
     public function up(): void {
         Schema::create( 'spektrix_customers', function ( Blueprint $table ) {
             $table->id();
-            $table->foreignId( 'team_id' );
-            $table->string( 'spektrix_id' )->unique();
+            $table->foreignId( 'team_id' )->constrained()->cascadeOnDelete();
+            $table->unsignedBigInteger( 'spektrix_id' )->unique();
+            $table->string( 'title' )->nullable();
             $table->string( 'first_name' );
             $table->string( 'last_name' );
-            $table->string( 'title' )->nullable();
-            $table->string( 'email' )->nullable();
+            $table->string( 'email' )->nullable()->index();
             $table->string( 'mobile_original' )->nullable();
             $table->string( 'mobile_canonical' )->nullable()->index();
             $table->boolean( 'is_mobile_valid' )->default( false );

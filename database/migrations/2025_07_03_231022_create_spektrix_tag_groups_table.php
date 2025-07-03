@@ -10,12 +10,12 @@ return new class extends Migration {
      * Run the migrations.
      */
     public function up(): void {
-        Schema::create( 'spektrix_venues', function ( Blueprint $table ) {
+        Schema::create( 'spektrix_tag_groups', function ( Blueprint $table ) {
             $table->id();
-            $table->foreignId( 'team_id' )->constrained()->cascadeOnDelete();
             $table->unsignedBigInteger( 'spektrix_id' )->unique();
             $table->string( 'name' );
-            $table->text( 'address' )->nullable(); // Changed to text for longer addresses
+            $table->string( 'description' )->nullable();
+            $table->boolean( 'is_web' )->default( false );
             $table->timestamps();
         } );
     }
@@ -24,6 +24,6 @@ return new class extends Migration {
      * Reverse the migrations.
      */
     public function down(): void {
-        Schema::dropIfExists( 'spektrix_venues' );
+        Schema::dropIfExists( 'spektrix_tag_groups' );
     }
 };

@@ -12,13 +12,13 @@ return new class extends Migration {
     public function up(): void {
         Schema::create( 'spektrix_events', function ( Blueprint $table ) {
             $table->id();
-            $table->foreignId( 'team_id' );
-            $table->string( 'spektrix_id' )->unique();
+            $table->foreignId( 'team_id' )->constrained()->cascadeOnDelete();
+            $table->unsignedBigInteger( 'spektrix_id' )->unique();
             $table->string( 'web_event_id' )->nullable();
             $table->string( 'name' );
             $table->string( 'short_name' )->nullable();
-            $table->string( 'description' )->nullable();
-            $table->boolean( 'is_on_sale' );
+            $table->text( 'description' )->nullable(); // Changed to text
+            $table->boolean( 'is_on_sale' )->default( false );
             $table->timestamps();
         } );
     }
