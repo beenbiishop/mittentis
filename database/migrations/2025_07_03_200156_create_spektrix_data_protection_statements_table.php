@@ -12,7 +12,7 @@ return new class extends Migration {
     public function up(): void {
         Schema::create( 'spektrix_data_protection_statements', function ( Blueprint $table ) {
             $table->id();
-            $table->unsignedBigInteger( 'spektrix_id' )->unique();
+            $table->string( 'spektrix_id' )->unique();
             $table->string( 'text' );
             $table->timestamps();
         } );

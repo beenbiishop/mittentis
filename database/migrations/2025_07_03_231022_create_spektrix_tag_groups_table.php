@@ -12,7 +12,7 @@ return new class extends Migration {
     public function up(): void {
         Schema::create( 'spektrix_tag_groups', function ( Blueprint $table ) {
             $table->id();
-            $table->unsignedBigInteger( 'spektrix_id' )->unique();
+            $table->string( 'spektrix_id' )->unique();
             $table->string( 'name' );
             $table->string( 'description' )->nullable();
             $table->boolean( 'is_web' )->default( false );

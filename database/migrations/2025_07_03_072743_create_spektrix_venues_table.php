@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create( 'spektrix_venues', function ( Blueprint $table ) {
             $table->id();
             $table->foreignId( 'team_id' )->constrained()->cascadeOnDelete();
-            $table->unsignedBigInteger( 'spektrix_id' )->unique();
+            $table->string( 'spektrix_id' )->unique();
             $table->string( 'name' );
             $table->text( 'address' )->nullable(); // Changed to text for longer addresses
             $table->timestamps();

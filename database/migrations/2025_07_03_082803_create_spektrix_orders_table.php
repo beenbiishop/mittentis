@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create( 'spektrix_orders', function ( Blueprint $table ) {
             $table->id();
             $table->foreignId( 'team_id' )->constrained()->cascadeOnDelete();
-            $table->unsignedBigInteger( 'spektrix_id' )->unique();
+            $table->string( 'spektrix_id' )->unique();
             $table->dateTime( 'first_transaction' )->nullable();
             $table->dateTime( 'last_transaction' )->nullable();
             $table->float( 'total' );

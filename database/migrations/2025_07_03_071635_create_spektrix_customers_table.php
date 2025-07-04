@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create( 'spektrix_customers', function ( Blueprint $table ) {
             $table->id();
             $table->foreignId( 'team_id' )->constrained()->cascadeOnDelete();
-            $table->unsignedBigInteger( 'spektrix_id' )->unique();
+            $table->string( 'spektrix_id' )->unique();
             $table->string( 'title' )->nullable();
             $table->string( 'first_name' );
             $table->string( 'last_name' );

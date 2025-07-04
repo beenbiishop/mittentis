@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create( 'spektrix_ticket_types', function ( Blueprint $table ) {
             $table->id();
             $table->foreignId( 'team_id' )->constrained()->cascadeOnDelete();
-            $table->unsignedBigInteger( 'spektrix_id' )->unique();
+            $table->string( 'spektrix_id' )->unique();
             $table->string( 'name' );
             $table->timestamps();
         } );
