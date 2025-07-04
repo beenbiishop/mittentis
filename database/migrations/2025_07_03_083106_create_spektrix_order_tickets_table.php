@@ -10,10 +10,10 @@ return new class extends Migration {
      * Run the migrations.
      */
     public function up(): void {
-        Schema::create( 'spektrix_order_tickets', function ( Blueprint $table ) {
-            $table->foreignId( 'order_id' )->constrained( 'spektrix_orders' )->cascadeOnDelete();
-            $table->foreignId( 'ticket_id' )->constrained( 'spektrix_tickets' )->cascadeOnDelete();
-            $table->primary( [ 'order_id', 'ticket_id' ] );
+        Schema::create( 'spektrix_order_spektrix_ticket', function ( Blueprint $table ) {
+            $table->foreignId( 'spektrix_order_id' )->constrained()->cascadeOnDelete();
+            $table->foreignId( 'spektrix_ticket_id' )->constrained()->cascadeOnDelete();
+            $table->primary( [ 'spektrix_order_id', 'spektrix_ticket_id' ] );
             $table->timestamps();
         } );
     }
@@ -22,6 +22,6 @@ return new class extends Migration {
      * Reverse the migrations.
      */
     public function down(): void {
-        Schema::dropIfExists( 'spektrix_order_tickets' );
+        Schema::dropIfExists( 'spektrix_order_spektrix_ticket' );
     }
 };

@@ -15,8 +15,8 @@ return new class extends Migration {
             $table->foreignId( 'team_id' )->constrained()->cascadeOnDelete();
             $table->string( 'spektrix_id' )->unique();
             $table->string( 'web_instance_id' )->nullable();
-            $table->boolean( 'is_on_sale' );
-            $table->foreignId( 'plan_id' )->constrained( 'spektrix_plans' )->restrictOnDelete();
+            $table->boolean( 'is_on_sale' )->nullable();
+            $table->foreignId( 'spektrix_plan_id' )->constrained()->restrictOnDelete();
             $table->dateTime( 'start' );
             $table->dateTime( 'start_selling_at_web' )->nullable();
             $table->dateTime( 'start_selling_at_sales' )->nullable();

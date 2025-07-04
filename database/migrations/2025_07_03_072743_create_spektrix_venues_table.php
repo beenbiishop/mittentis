@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->foreignId( 'team_id' )->constrained()->cascadeOnDelete();
             $table->string( 'spektrix_id' )->unique();
             $table->string( 'name' );
-            $table->text( 'address' )->nullable(); // Changed to text for longer addresses
+            $table->text( 'address' )->nullable();
             $table->timestamps();
         } );
     }

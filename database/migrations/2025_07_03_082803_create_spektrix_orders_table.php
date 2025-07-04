@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->dateTime( 'first_transaction' )->nullable();
             $table->dateTime( 'last_transaction' )->nullable();
             $table->float( 'total' );
-            $table->foreignId( 'customer_id' )->constrained( 'spektrix_customers' )->cascadeOnDelete();
+            $table->foreignId( 'spektrix_customer_id' )->constrained()->cascadeOnDelete();
             $table->timestamps();
         } );
     }

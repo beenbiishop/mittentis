@@ -10,12 +10,11 @@ return new class extends Migration {
      * Run the migrations.
      */
     public function up(): void {
-        Schema::create( 'spektrix_customer_data_protection_statements', function ( Blueprint $table ) {
-            $table->foreignId( 'customer_id' )->constrained( 'spektrix_customers' )->cascadeOnDelete();
-            $table->foreignId( 'data_protection_statement_id' )
-                  ->constrained( 'spektrix_data_protection_statements' )
-                  ->cascadeOnDelete();
-            $table->primary( [ 'customer_id', 'data_protection_statement_id' ] );
+        Schema::create( 'spektrix_customer_spektrix_data_protection_statement', function ( Blueprint $table ) {
+            $table->foreignId( 'spektrix_customer_id' )->constrained()->cascadeOnDelete();
+            $table->foreignId( 'spektrix_data_protection_statement_id' )->constrained()->cascadeOnDelete();
+            $table->boolean( 'agreed' )->nullable();
+            $table->primary( [ 'spektrix_customer_id', 'spektrix_data_protection_statement_id' ] );
             $table->timestamps();
         } );
     }
@@ -24,6 +23,6 @@ return new class extends Migration {
      * Reverse the migrations.
      */
     public function down(): void {
-        Schema::dropIfExists( 'spektrix_customer_data_protection_statements' );
+        Schema::dropIfExists( 'spektrix_customer_spektrix_data_protection_statement' );
     }
 };

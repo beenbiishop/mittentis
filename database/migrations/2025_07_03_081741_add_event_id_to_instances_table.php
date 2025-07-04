@@ -11,7 +11,7 @@ return new class extends Migration {
      */
     public function up(): void {
         Schema::table( 'spektrix_instances', function ( Blueprint $table ) {
-            $table->foreignId( 'event_id' )->constrained( 'spektrix_events' )->cascadeOnDelete();
+            $table->foreignId( 'spektrix_event_id' )->constrained()->cascadeOnDelete();
         } );
     }
 
@@ -20,7 +20,7 @@ return new class extends Migration {
      */
     public function down(): void {
         Schema::table( 'spektrix_instances', function ( Blueprint $table ) {
-            $table->dropColumn( 'event_id' );
+            $table->dropColumn( 'spektrix_event_id' );
         } );
     }
 };

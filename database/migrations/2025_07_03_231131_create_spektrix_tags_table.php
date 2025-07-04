@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string( 'spektrix_id' )->unique();
             $table->string( 'name' );
-            $table->foreignId( 'tag_group_id' )->nullable()->constrained( 'spektrix_tag_groups' );
+            $table->foreignId( 'spektrix_tag_group_id' )->nullable()->constrained();
             $table->timestamps();
         } );
     }

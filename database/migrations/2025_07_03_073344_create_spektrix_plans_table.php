@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string( 'name' );
             $table->integer( 'capacity' )->nullable();
             $table->enum( 'type', [ 'group', 'reserved', 'unreserved' ] );
-            $table->foreignId( 'venue_id' )->constrained( 'spektrix_venues' )->cascadeOnDelete();
+            $table->foreignId( 'spektrix_venue_id' )->constrained()->cascadeOnDelete();
             $table->timestamps();
         } );
     }

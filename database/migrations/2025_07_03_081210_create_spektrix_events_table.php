@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->string( 'name' );
             $table->string( 'short_name' )->nullable();
             $table->text( 'description' )->nullable(); // Changed to text
-            $table->boolean( 'is_on_sale' )->default( false );
+            $table->boolean( 'is_on_sale' )->nullable();
             $table->timestamps();
         } );
     }
